@@ -1,56 +1,102 @@
 <html><head><meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant App | Contact</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --surface: #f8f9fb;
+      --surface-2: #eef2f7;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --border: #d7dde5;
+      --accent: #0f6fff;
+      --accent-hover: #0b5ad1;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 14px;
+      --max-width: 1120px;
+    }
 
-
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; }
+    header { border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.95); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); }
+    header nav { max-width: var(--max-width); margin: 0 auto; padding: 1rem 1.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; }
+    header nav a { text-decoration: none; color: var(--muted); font-weight: 700; }
+    header nav a:hover, header nav a:focus-visible { color: var(--accent); text-decoration: underline; outline: none; }
+    main { max-width: var(--max-width); margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    .intro { max-width: 760px; margin-bottom: 1.5rem; }
+    .intro h1 { margin: 0 0 0.75rem; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; color: var(--text); }
+    .intro p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .contact-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr); gap: 1.5rem; align-items: start; }
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel-inner { padding: 1.5rem; }
+    form { display: grid; gap: 1rem; }
+    .field { display: grid; gap: 0.45rem; }
+    label { font-weight: 700; color: var(--text); }
+    input, textarea { width: 100%; border: 1px solid var(--border); border-radius: 10px; background: #fff; color: var(--text); padding: 0.85rem 0.95rem; font: inherit; }
+    input:focus, textarea:focus { outline: 3px solid rgba(15, 111, 255, 0.18); border-color: var(--accent); }
+    textarea { min-height: 160px; resize: vertical; }
+    button { justify-self: start; border: 0; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 700; padding: 0.9rem 1.35rem; cursor: pointer; transition: background-color 0.2s ease; }
+    button:hover, button:focus-visible { background: var(--accent-hover); outline: none; }
+    .map-panel h2 { margin: 0 0 0.65rem; font-size: 1.35rem; }
+    .map-panel p { margin: 0 0 1rem; color: var(--muted); }
+    .map-container { overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-2); min-height: 360px; }
+    iframe { display: block; width: 100%; height: 360px; border: 0; }
+    @media (max-width: 860px) { .contact-layout { grid-template-columns: 1fr; } }
+  </style>
   </head><body><header>
     <nav aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#offerings">Offerings</a>
-      <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#story">Story</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#offerings">Offerings</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#menu">Menu</a>
+      <a href="index.html#story">Story</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section id="home">
-      <h1>Contact Our Restaurant</h1>
-      <p>Get in touch for reservations, private dining inquiries, catering details, and general questions about our restaurant.</p>
+    <section class="intro" aria-labelledby="contact-title">
+      <h1 id="contact-title">Contact Our Restaurant</h1>
+      <p>Please fill out the form below to get in touch. We look forward to hearing from you.</p>
     </section>
 
-    <section id="offerings">
-      <h2>Our Offerings</h2>
-      <p>We offer dine-in service, private event hosting, catering support, takeaway coordination, and personalized hospitality for every guest occasion.</p>
-    </section>
+    <section class="contact-layout" aria-label="Contact details and map">
+      <div class="panel">
+        <div class="panel-inner">
+          <form id="contact-form" action="#" method="post" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
 
-    <section id="about">
-      <h2>About the Restaurant</h2>
-      <p>Our team is dedicated to warm service, thoughtful dining experiences, and making every visit easy to plan from first inquiry to final course.</p>
+      <aside class="panel map-panel" aria-labelledby="map-title">
+        <div class="panel-inner">
+          <h2 id="map-title">Find Us</h2>
+          <p>Use the map below to view our location and plan your visit.</p>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.511571714948!2d-122.42067968468143!3d37.77928027975881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bc38130cf%3A0x3d376ef4ffd4e6d0!2s128%20Market%20St%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1686422481502!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing location of the restaurant" aria-label="Map showing location of the restaurant"></iframe>
+          </div>
+        </div>
+      </aside>
     </section>
-
-    <section id="menu">
-      <h2>Menu</h2>
-      <ul>
-  <li>Reservation assistance for lunch and dinner service</li>
-  <li>Private dining options for celebrations and business gatherings</li>
-  <li>Catering coordination for local events and special occasions</li>
-  <li>Guest support for menu questions and dining preferences</li>
-</ul>
-    </section>
-
-    <section id="story">
-      <h2>Our Story</h2>
-      <p>From our first neighborhood service to today, we have built our reputation on genuine hospitality, memorable meals, and personal connections with every guest we welcome.</p>
-    </section>
-
-    <section id="contact">
-  <h2>Contact</h2>
-  <p>Email: reservations@restaurantapp.com</p>
-  <p>Phone: (555) 987-1234</p>
-  <p>Address: 128 Market Street, Flavor City</p>
-</section>
   </main>
 
 </body></html>
