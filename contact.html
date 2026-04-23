@@ -1,5 +1,8 @@
-<html><head><meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Restaurant App | Contact</title>
   <style>
     :root {
@@ -17,35 +20,185 @@
       --max-width: 1120px;
     }
 
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    a { color: inherit; }
-    header { border-bottom: 1px solid var(--border); background: rgba(255, 255, 255, 0.95); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); }
-    header nav { max-width: var(--max-width); margin: 0 auto; padding: 1rem 1.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; }
-    header nav a { text-decoration: none; color: var(--muted); font-weight: 700; }
-    header nav a:hover, header nav a:focus-visible { color: var(--accent); text-decoration: underline; outline: none; }
-    main { max-width: var(--max-width); margin: 0 auto; padding: 2rem 1.25rem 3rem; }
-    .intro { max-width: 760px; margin-bottom: 1.5rem; }
-    .intro h1 { margin: 0 0 0.75rem; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; color: var(--text); }
-    .intro p { margin: 0; color: var(--muted); font-size: 1.05rem; }
-    .contact-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr); gap: 1.5rem; align-items: start; }
-    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .panel-inner { padding: 1.5rem; }
-    form { display: grid; gap: 1rem; }
-    .field { display: grid; gap: 0.45rem; }
-    label { font-weight: 700; color: var(--text); }
-    input, textarea { width: 100%; border: 1px solid var(--border); border-radius: 10px; background: #fff; color: var(--text); padding: 0.85rem 0.95rem; font: inherit; }
-    input:focus, textarea:focus { outline: 3px solid rgba(15, 111, 255, 0.18); border-color: var(--accent); }
-    textarea { min-height: 160px; resize: vertical; }
-    button { justify-self: start; border: 0; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 700; padding: 0.9rem 1.35rem; cursor: pointer; transition: background-color 0.2s ease; }
-    button:hover, button:focus-visible { background: var(--accent-hover); outline: none; }
-    .map-panel h2 { margin: 0 0 0.65rem; font-size: 1.35rem; }
-    .map-panel p { margin: 0 0 1rem; color: var(--muted); }
-    .map-container { overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-2); min-height: 360px; }
-    iframe { display: block; width: 100%; height: 360px; border: 0; }
-    @media (max-width: 860px) { .contact-layout { grid-template-columns: 1fr; } }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+
+    header nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      align-items: center;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    header nav a:hover,
+    header nav a:focus-visible {
+      color: var(--accent);
+      text-decoration: underline;
+      outline: none;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel-inner {
+      padding: 1.5rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    label {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      padding: 0.85rem 0.95rem;
+      font: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 3px solid rgba(15, 111, 255, 0.18);
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    button {
+      justify-self: start;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.9rem 1.35rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+      background: var(--accent-hover);
+      outline: none;
+    }
+
+    .map-panel h2 {
+      margin: 0 0 0.65rem;
+      font-size: 1.35rem;
+    }
+
+    .map-panel p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+    }
+
+    .map-container {
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      min-height: 360px;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 360px;
+      border: 0;
+    }
+
+    @media (max-width: 860px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
-  </head><body><header>
+</head>
+<body>
+  <header>
     <nav aria-label="Main navigation">
       <a href="index.html#home">Home</a>
       <a href="index.html#offerings">Offerings</a>
@@ -70,18 +223,22 @@
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required autocomplete="name" />
             </div>
+
             <div class="field">
               <label for="email">Email</label>
               <input type="email" id="email" name="email" required autocomplete="email" />
             </div>
+
             <div class="field">
               <label for="subject">Subject</label>
               <input type="text" id="subject" name="subject" required />
             </div>
+
             <div class="field">
               <label for="message">Message</label>
               <textarea id="message" name="message" required></textarea>
             </div>
+
             <button type="submit">Send Message</button>
           </form>
         </div>
@@ -92,11 +249,16 @@
           <h2 id="map-title">Find Us</h2>
           <p>Use the map below to view our location and plan your visit.</p>
           <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.511571714948!2d-122.42067968468143!3d37.77928027975881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bc38130cf%3A0x3d376ef4ffd4e6d0!2s128%20Market%20St%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1686422481502!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing location of the restaurant" aria-label="Map showing location of the restaurant"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.511571714948!2d-122.42067968468143!3d37.77928027975881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808bc38130cf%3A0x3d376ef4ffd4e6d0!2s128%20Market%20St%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1686422481502!5m2!1sen!2sus"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Map showing location of the restaurant"
+              aria-label="Map showing location of the restaurant"></iframe>
           </div>
         </div>
       </aside>
     </section>
   </main>
-
-</body></html>
+</body>
+</html>
